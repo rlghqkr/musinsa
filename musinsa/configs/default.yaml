@@ -1,0 +1,27 @@
+paths:
+  index_dir: data/musinsa_index
+  samples_dir: data/samples
+  output_dir: outputs
+
+retrieval:
+  topk: 20
+  weights: {clip: 0.5, layout: 0.4, light: 0.1}
+
+compose:
+  use_diffusion_inpaint: true
+  ip_adapter: true
+  controlnet_depth: true
+  soft_shadow_strength: 0.6
+  feather_px: 2
+
+models:
+  clip_model: openai/clip-vit-base-patch32
+  depth_model: Intel/MiDaS-Large
+  grounding_dino: groundingdino-swint-ogc
+  sam: facebook/sam2-hq
+  yolo_seg: yolov8x-seg
+  sd_inpaint: stabilityai/stable-diffusion-2-inpainting
+
+runtime:
+  device: cuda
+  precision: fp16
